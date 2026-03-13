@@ -1,0 +1,398 @@
+/* RESET DASAR & BACKGROUND UTAMA */
+
+html {
+    scroll-behavior: smooth;
+    /* Kunci agar gulirannya halus */
+}
+
+/* Targetkan ID section-nya */
+#paket {
+    scroll-margin-top: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+}
+
+/* BAGIAN NAVBAR */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    background-color: #002967;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Class .navbar-brand sudah digabung agar lebih bersih */
+.navbar-brand {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Membatasi ukuran logo agar proporsional */
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #e6f1ff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+    /* Efek transisi halus */
+    border: 2px solid transparent;
+    /* Border transparan default agar tidak lompat saat hover */
+}
+
+.nav-link:hover {
+    background-color: #002967;
+    border: 2px solid #ffffff;
+}
+
+/* BAGIAN HERO / SAMBUTAN AWAL */
+
+.hero-section {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    background-color: #f4f7f6;
+}
+
+.hero-section h1 {
+    color: #002967;
+    font-size: 36px;
+    font-weight: bold;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+/* BAGIAN PAKET PENERBITAN (KARTU) */
+
+.paket-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    color: #002967;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* Pembungkus 3 Kartu */
+.paket-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Desain Dasar Kartu */
+.paket-card {
+    background-color: #ffffff;
+    border: 1px solid #002967;
+    border-radius: 8px;
+    padding: 30px 25px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nama Paket (Ordal, CEO, Kraton) */
+.paket-nama {
+    display: block;
+    color: #002967;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #002967;
+}
+
+/* Teks Fitur di dalam Kartu */
+.paket-card p {
+    color: #4a5568;
+    font-size: 15px;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+/* Mendorong tombol agar selalu di bawah */
+.paket-card p:last-of-type {
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+/* Tombol Order */
+.paket-btn {
+    background-color: #002967;
+    color: #ffffff;
+    border: 2px solid #002967;
+    /* Menggunakan border dari awal agar ukuran konsisten */
+    padding: 12px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+/* Efek Hover Tombol */
+.paket-btn:hover {
+    background-color: #ffffff;
+    color: #002967;
+    border: 2px solid #000000;
+}
+
+/* FOOTER GAYA MENGAMBANG (FLOATING LOGO) */
+
+.custom-footer {
+    background-color: #002967;
+    /* Warna navy khas BungDed */
+    color: #FFFFFF;
+    margin-top: 120px;
+    /* Jarak ekstra agar logo mengambang tidak nabrak konten atas */
+    border-top-left-radius: 40px;
+    /* Lengkungan kiri atas */
+    border-top-right-radius: 40px;
+    /* Lengkungan kanan atas */
+    padding-bottom: 30px;
+    position: relative;
+}
+
+/* Lingkaran Logo Mengambang */
+.footer-logo-wrapper {
+    position: absolute;
+    top: -60px;
+    /* Separuh dari tinggi lingkaran (120px / 2) */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    /* Membuatnya bulat sempurna */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.footer-floating-logo {
+    width: 70%;
+    height: auto;
+}
+
+/* Judul Utama di Footer */
+.footer-header {
+    text-align: center;
+    padding-top: 80px;
+    /* Mendorong teks ke bawah agar tidak tertutup logo */
+    margin-bottom: 50px;
+}
+
+.footer-header h2 {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    border-bottom: none;
+    /* Menghilangkan garis bawah bawaan h2 sebelumnya */
+}
+
+.footer-header p {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #A8B2D1;
+}
+
+/* Grid 2 Kolom untuk Info & Kontak */
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Teks Kolom Kiri */
+.footer-left h3,
+.footer-right h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+}
+
+.footer-left p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #A8B2D1;
+    margin-bottom: 25px;
+    max-width: 400px;
+}
+
+/* Ikon Sosial Media (Bulat) */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    /* Transparan */
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #A8B2D1;
+    color: #002967;
+    transform: translateY(-3px);
+}
+
+/* List Kontak (Kanan) - Dibuat Berbaris Menyamping */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    /* Jarak sedikit dikecilkan agar lebih muat di layar */
+    flex-wrap: nowrap;
+    /* KUNCI: Memaksa agar pantang turun ke bawah */
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 0;
+    /* KUNCI: Jarak bawah dinolkan agar tidak renggang */
+    font-size: 0.95rem;
+    color: #A8B2D1;
+}
+
+/* Ikon Putih di List Kontak */
+.contact-list .icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    /* Mencegah ikon lonjong */
+}
+
+/* Mengatur ukuran gambar di dalam ikon bulat */
+.contact-list .icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+/* Garis Bawah dan Kapsul Policy */
+.footer-bottom-bar {
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+    padding: 30px 20px 0 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    /* Garis pemisah halus */
+    display: flex;
+    justify-content: flex-end;
+    /* Memosisikan kapsul di kanan */
+}
+
+.footer-right {
+    margin-top: 80px;
+}
+
+/* Kunci agar tulisan Bojonegoro, Jawa Timur lurus */
+.teks-kontak {
+    white-space: nowrap;
+}
+
+/* MEDIA QUERIES (RESPONSIVITAS UNTUK HP) */
+
+@media (max-width: 768px) {
+    /* ... (kode media query yang lain biarkan saja) ... */
+
+    .contact-list {
+        flex-direction: column;
+        /* Kalau di HP, jadikan susun ke bawah */
+        gap: 15px;
+        /* Jarak antar baris di HP */
+    }
+
+    .contact-list li {
+        justify-content: flex-start;
+        /* Rata kiri agar rapi */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-left p {
+        margin: 0 auto 25px auto;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .contact-list {
+        justify-content: center;
+        /* Menengahkan list kontak di HP */
+    }
+
+    .contact-list li {
+        text-align: left;
+    }
+
+    .footer-bottom-bar {
+        justify-content: center;
+        /* Kapsul kuning ke tengah di HP */
+    }
+}
