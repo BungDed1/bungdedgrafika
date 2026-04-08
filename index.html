@@ -1,133 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Utama</title>
+    <title>Halaman Utama - BungDed Grafika</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="/style/main.css">
 </head>
 
-<body id="top">
-    <header>
-        <nav class="navbar">
-            <div class="navbar-brand">
-                <img src="public/putih.webp" alt="Logo BungDed Grafika" height="60">
-                <strong class="navbar-brand">BungDed Grafika</strong>
-            </div>
-            <div>
-                <ul class="navbar-menu">
-                    <li><a href="#top" class="nav-link">Home</a></li>
-                    <li><a href="/pages/Layanan/index.html" class="nav-link">Layanan</a>
-                    <li><a href="/pages/Toko Buku/index.html" class="nav-link">Toko Buku</a></li>
-                    <li><a href="#paket" class="nav-link">Paket Penerbitan</a></li>
-                    <li><a href="/pages/Tentang Kami/index.html" class="nav-link">Tentang Kami</a></li>
-                    <li><a href="/pages/Konsultasi Gratis/index.html" class="nav-link">Konsultasi Gratis</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+<body id="top" class="bg-light">
 
-    <!-- Section Tentang Kami -->
-    <section class="hero-section">
-        <h1>Tulis naskahnya, biarkan kami yang mengurus sisanya. Terbitkan dan cetak buku jadi lebih mudah.</h1>
-    </section>
+    <div id="tempat-navbar"></div>
 
-    <!-- Section Paket Penerbitan -->
-    <section id="paket" class="paket-section">
+    <section class="hero-section position-relative d-flex align-items-center"
+        style="min-height: 75vh; padding-top: 76px; background: url('/public/banner.webp') center/cover no-repeat;">
 
-        <h2 class="section-title">Paket Penerbitan</h2>
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.3;"></div>
 
-        <div class="paket-container">
-            <div class="paket-card">
-                <strong class="paket-nama">Paket Ordal</strong>
-                <p>2 eksemplar soft cover</p>
-                <p>ISBN cetak/digital</p>
-                <p>Ukuran A5 (hvs/bookpaper)</p>
-                <p>Maksimal 150 halaman</p>
-                <p>Free Layout</p>
-                <p>Free Design cover</p>
-                <p>Sertifikat penulis</p>
-                <button class="paket-btn">Order Sekarang</button>
-            </div>
+        <div class="container position-relative z-1 text-white text-center">
 
-            <div class="paket-card">
-                <strong class="paket-nama">Paket CEO</strong>
-                <p>5 eksemplar soft cover</p>
-                <p>ISBN cetak/digital</p>
-                <p>Ukuran A5 (hvs/bookpaper)</p>
-                <p>Maksimal 250 halaman</p>
-                <p>Free Layout</p>
-                <p>Free Design cover</p>
-                <p>Sertifikat penulis</p>
-                <p>Pamflet Promosi</p>
-                <button class="paket-btn">Order Sekarang</button>
-            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
 
-            <div class="paket-card">
-                <strong class="paket-nama">Paket Kraton</strong>
-                <p>10 eksemplar soft cover</p>
-                <p>ISBN cetak/digital</p>
-                <p>Ukuran A5 (hvs/bookpaper)</p>
-                <p>Maksimal 350 halaman</p>
-                <p>Free Layout</p>
-                <p>Free Design cover</p>
-                <p>Sertifikat penulis</p>
-                <p>Pamflet Promosi</p>
-                <p>Promosi Medsos/Website BungDed Grafika</p>
-                <button class="paket-btn">Order Sekarang</button>
+                    <h1 class="display-5 fw-bold mb-4" style="line-height: 1.3;">
+                        Tulis naskahnya, biarkan kami yang mengurus sisanya
+                    </h1>
+
+                    <p class="lead mb-4 mx-auto" style="font-size: 1.1rem; opacity: 0.9; max-width: 700px;">
+                        Kami siap menerbitkan buku ajar, referensi,
+                        monograf, hingga fiksi dalam bentuk cetak maupun E-Book.
+                    </p>
+
+                    <a href="http://wa.me/081515709786" target="_blank"
+                        class="btn fw-bold px-4 py-2 rounded-pill shadow-sm d-inline-flex align-items-center btn-hero-custom"
+                        style="font-size: 0.95rem;">
+                        <img src="/public/wa.webp" alt="WA" width="18" class="me-2">
+                        HUBUNGI SEKARANG
+                    </a>
+
+                </div>
             </div>
         </div>
-
     </section>
+
+    <section id="paket" class="paket-section py-5 text-center">
+        <div class="container">
+            <h2 class="section-title fw-bold mb-5" style="color: #002967;">Paket Penerbitan</h2>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 shadow-sm bg-white"
+                        style="border: 1px solid #002967; border-radius: 8px;">
+                        <strong class="fs-4 mb-3 pb-3 border-bottom d-block text-center"
+                            style="color: #002967; border-color: #002967 !important;">Paket Ordal</strong>
+
+                        <div class="card-body p-0 d-flex flex-column text-start text-secondary"
+                            style="font-size: 15px;">
+                            <p class="mb-2">2 eksemplar soft cover</p>
+                            <p class="mb-2">ISBN cetak/digital</p>
+                            <p class="mb-2">Ukuran A5 (hvs/bookpaper)</p>
+                            <p class="mb-2">Maksimal 150 halaman</p>
+                            <p class="mb-2">Free Layout</p>
+                            <p class="mb-2">Free Design cover</p>
+                            <p class="mb-4 flex-grow-1">Sertifikat penulis</p>
+
+                            <a href="http://wa.me/081515709786" target="_blank"
+                                class="btn fw-bold w-100 paket-btn-custom"
+                                style="background-color: #002967; color: white; border: 2px solid #002967;">
+                                Order Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 shadow-sm bg-white"
+                        style="border: 1px solid #002967; border-radius: 8px;">
+                        <strong class="fs-4 mb-3 pb-3 border-bottom d-block text-center"
+                            style="color: #002967; border-color: #002967 !important;">Paket CEO</strong>
+
+                        <div class="card-body p-0 d-flex flex-column text-start text-secondary"
+                            style="font-size: 15px;">
+                            <p class="mb-2">5 eksemplar soft cover</p>
+                            <p class="mb-2">ISBN cetak/digital</p>
+                            <p class="mb-2">Ukuran A5 (hvs/bookpaper)</p>
+                            <p class="mb-2">Maksimal 250 halaman</p>
+                            <p class="mb-2">Free Layout</p>
+                            <p class="mb-2">Free Design cover</p>
+                            <p class="mb-2">Sertifikat penulis</p>
+                            <p class="mb-4 flex-grow-1">Pamflet Promosi</p>
+
+                            <a href="http://wa.me/081515709786" target="_blank"
+                                class="btn fw-bold w-100 paket-btn-custom"
+                                style="background-color: #002967; color: white; border: 2px solid #002967;">
+                                Order Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 shadow-sm bg-white"
+                        style="border: 1px solid #002967; border-radius: 8px;">
+                        <strong class="fs-4 mb-3 pb-3 border-bottom d-block text-center"
+                            style="color: #002967; border-color: #002967 !important;">Paket Kraton</strong>
+
+                        <div class="card-body p-0 d-flex flex-column text-start text-secondary"
+                            style="font-size: 15px;">
+                            <p class="mb-2">10 eksemplar soft cover</p>
+                            <p class="mb-2">ISBN cetak/digital</p>
+                            <p class="mb-2">Ukuran A5 (hvs/bookpaper)</p>
+                            <p class="mb-2">Maksimal 350 halaman</p>
+                            <p class="mb-2">Free Layout</p>
+                            <p class="mb-2">Free Design cover</p>
+                            <p class="mb-2">Sertifikat penulis</p>
+                            <p class="mb-2">Pamflet Promosi</p>
+                            <p class="mb-4 flex-grow-1">Promosi Medsos/Website BungDed Grafika</p>
+
+                            <a href="http://wa.me/081515709786" target="_blank"
+                                class="btn fw-bold w-100 paket-btn-custom"
+                                style="background-color: #002967; color: white; border: 2px solid #002967;">
+                                Order Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-5 pb-4 position-relative text-white"
+        style="background-color: #002967; border-top-left-radius: 40px; border-top-right-radius: 40px; margin-top: 120px !important;">
+
+        <div class="footer-logo-wrapper">
+            <img src="/public/birulogo.webp" alt="Logo BungDed Grafika">
+        </div>
+
+        <div class="container pt-5 mt-4">
+            <div class="text-center mb-5 pt-4">
+                <h2 class="fs-1 fw-bold mb-2">BungDed Grafika</h2>
+                <p class="fst-italic" style="color: #A8B2D1;">"Penerbit & Percetakan"</p>
+            </div>
+
+            <div class="row gx-5 gy-4">
+                <div class="col-md-6">
+                    <h3 class="fs-5 mb-4">BUNGDED GRAFIKA</h3>
+                    <p style="color: #A8B2D1; line-height: 1.8;">Tulis naskahnya, biarkan kami yang mengurus sisanya.
+                        Terbitkan dan cetak buku jadi lebih mudah.</p>
+                    <div class="d-flex gap-3">
+                        <a href="https://instagram.com/bungdedgrafika" target="_blank"
+                            class="d-flex justify-content-center align-items-center bg-white rounded-circle social-icon-custom"
+                            style="width: 40px; height: 40px; transition: 0.3s;">
+                            <img src="/public/ig.webp" alt="Instagram" height="25">
+                        </a>
+                        <a href="http://wa.me/081515709786" target="_blank"
+                            class="d-flex justify-content-center align-items-center bg-white rounded-circle social-icon-custom"
+                            style="width: 40px; height: 40px; transition: 0.3s;">
+                            <img src="/public/wa.webp" alt="WhatsApp" height="27">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-5 mt-md-0">
+                    <h3 class="fs-5 mb-4">Hubungi Kami di</h3>
+                    <ul class="list-unstyled d-flex flex-wrap gap-4">
+                        <li class="d-flex align-items-center gap-3">
+                            <span
+                                class="d-flex justify-content-center align-items-center bg-white rounded-circle flex-shrink-0"
+                                style="width: 40px; height: 40px;">
+                                <img src="/public/loc.webp" alt="Lokasi" style="width: 20px; object-fit: contain;">
+                            </span>
+                            <span class="text-nowrap" style="color: #A8B2D1;">Bojonegoro, Jawa Timur</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-3">
+                            <span
+                                class="d-flex justify-content-center align-items-center bg-white rounded-circle flex-shrink-0"
+                                style="width: 40px; height: 40px;">
+                                <img src="/public/em.webp" alt="Email" style="width: 20px; object-fit: contain;">
+                            </span>
+                            <span class="text-nowrap" style="color: #A8B2D1;">bungdedgrafika@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="/function/navbar.js"></script>
 
 </body>
-
-<footer class="custom-footer">
-
-    <div class="footer-logo-wrapper">
-        <img src="public/birulogo.webp" alt="Logo BungDed Grafika" class="footer-floating-logo">
-    </div>
-
-    <div class="footer-header">
-        <h2>BungDed Grafika</h2>
-        <p>"Penerbit & Percetakan"</p>
-    </div>
-
-    <div class="footer-content container">
-        <div class="footer-left">
-            <h3>BUNGDED GRAFIKA</h3>
-            <p>Tulis naskahnya, biarkan kami yang mengurus sisanya. Terbitkan dan cetak buku jadi lebih mudah.</p>
-            <div class="social-icons">
-                <a href="https://instagram.com/bungdedgrafika">
-                    <img src="/public/ig.webp" alt="Instagram" height="25">
-                </a>
-                <a href="http://wa.me/081515709786">
-                    <img src="/public/wa.webp" alt="WhatsApp" height="27">
-                </a>
-            </div>
-        </div>
-
-        <div class="footer-right">
-            <h3>Hubungi Kami di</h3>
-            <ul class="contact-list">
-                <li>
-                    <span class="icon">
-                        <img src="/public/loc.webp" alt="Lokasi">
-                    </span>
-                    <span class="teks-kontak">Bojonegoro, Jawa Timur</span>
-                </li>
-
-                <li>
-                    <span class="icon">
-                        <img src="/public/em.webp" alt="Email">
-                    </span>
-                    <span class="teks-kontak">bungdedgrafika@gmail.com</span>
-                </li>
-            </ul>
-            </ul>
-        </div>
-    </div>
-</footer>
 
 </html>
