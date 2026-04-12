@@ -89,3 +89,123 @@ body {
     filter: brightness(0) !important;
     /* Kondisi saat di-hover: Ikon menjadi hitam */
 }
+
+/* Styling utama untuk kontainer kartu */
+.katalog-card {
+    border: 1px solid #dcdcdc;
+    /* Garis tepi tipis seperti di gambar */
+    border-radius: 8px;
+    /* Sudut agak membulat */
+    padding: 20px;
+    max-width: 280px;
+    /* Lebar maksimal kartu */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Bayangan halus */
+    transition: transform 0.2s;
+    /* Efek saat di-hover */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Memastikan tinggi semua card sama panjang */
+}
+
+.katalog-card:hover {
+    transform: translateY(-5px);
+    /* Kartu sedikit naik saat disentuh mouse */
+}
+
+/* Styling untuk gambar buku */
+.book-cover {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1.4;
+    /* Menjaga rasio buku standar (misal A5) */
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    /* Memberi efek dimensi pada buku */
+}
+
+/* Styling untuk area teks */
+.book-info {
+    text-align: left;
+    /* Teks rata kiri */
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.book-title {
+    color: #002d62;
+    /* Biru gelap mirip judul "Paket Ordal" */
+    font-size: 1.2rem;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.book-author {
+    color: #666666;
+    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+}
+
+.book-price {
+    font-weight: bold;
+    color: #333333;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Styling tombol */
+.btn-order {
+    background-color: #002d62;
+    /* Warna biru gelap seragam dengan gambar */
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: auto;
+}
+
+.btn-order:hover {
+    background-color: #001a3d;
+    /* Warna berubah lebih gelap saat di-hover */
+}
+
+/* Styling untuk wadah yang membungkus semua card */
+.katalog-container {
+    display: flex;
+    /* Membuat elemen di dalamnya sejajar ke samping */
+    flex-wrap: wrap;
+    /* Jika layar sempit, card akan otomatis turun ke baris baru */
+    gap: 25px;
+    /* Memberikan jarak (spasi) antar card */
+    justify-content: flex-start;
+    /* Mengatur card agar merapat ke kiri */
+    padding: 20px;
+    align-items: stretch;
+}
+
+/*EFEK HOVER TOMBOL LAYANAN (CARD)*/
+.btn-layanan-custom {
+    background-color: #002967;
+    color: #ffffff;
+    border: 2px solid transparent;
+    /* Border awal transparan */
+    transition: all 0.3s ease;
+}
+
+.btn-layanan-custom:hover {
+    background-color: #ffffff !important;
+    color: #002967 !important;
+    /* Teks berubah jadi biru navy */
+    border: 2px solid #002967 !important;
+    /* Muncul garis pinggir biru navy */
+}

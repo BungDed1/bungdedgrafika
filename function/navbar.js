@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <div class="container-fluid px-4">
                     
                     <a class="navbar-brand d-flex align-items-center text-white" href="/index.html">
-                        <img src="/public/putih.webp" alt="Logo BungDed Grafika" height="40" class="me-2">
-                        <strong class="fs-4">BungDed Grafika</strong>
+                        <img src="/public/logonavbar.webp" alt="Logo BungDed Grafika" height="40" class="me-2">
+                        
                     </a>
                     
                     <button class="navbar-toggler border-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
