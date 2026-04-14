@@ -7,6 +7,12 @@ body {
     background-color: #f4f7f6;
 }
 
+
+.section-offset {
+    /* Angka ini menyesuaikan tinggi navbar kamu agar judulnya pas tidak tertutup */
+    scroll-margin-top: 80px;
+}
+
 /* Supaya saat diklik "Paket Penerbitan", judulnya tidak tertutup navbar yang menempel di atas */
 #paket {
     scroll-margin-top: 100px;
