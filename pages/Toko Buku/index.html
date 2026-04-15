@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Buku - BungDed Grafika</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/style/main.css">
 </head>
@@ -13,51 +14,83 @@
 
     <div id="tempat-navbar"></div>
 
-    <section class="py-5 mt-5">
+    <section class="py-5 mt-5 position-relative"
+        style="background: url('/public/bannerd.webp') center/cover no-repeat; min-height: 100vh;">
         <div class="container pt-5 mt-4 text-center">
-            <h2 class="fw-bold mb-4" style="color: #002967;">Toko Buku BungDed Grafika</h2>
-            <p class="text-muted mb-5">Temukan dan beli karya-karya terbaik yang telah diterbitkan bersama kami.</p>
-        </div>
-        <div class="katalog-container">
 
-            <div class="katalog-card">
-                <div class="image-container">
-                    <img src="/public/wa.webp" alt="Cover Buku 1" class="book-cover">
-                </div>
-                <div class="book-info">
-                    <h3 class="book-title">Seni Memvisualisasikan Naskah</h3>
-                    <p class="book-author">Penulis: Dedy Indra Setiawan</p>
-                    <p class="book-price">Rp 75.000</p>
-                </div>
-                <a href="http://wa.me/081515709786" target="_blank" class="btn fw-bold w-100 paket-btn-custom"
-                    style="background-color: #002967; color: white; border: 2px solid #002967;">
-                    Order Sekarang
-                </a>
+            <div class="p-4 rounded-4 shadow-sm mb-5 d-inline-block"
+                style="background-color: rgba(255, 255, 255, 0.9);">
+                <h2 class="fw-bold mb-3" style="color: #002967;">Toko Buku BungDed Grafika</h2>
+                <p class="text-muted mb-0">Temukan dan beli karya-karya terbaik yang telah diterbitkan bersama kami.</p>
             </div>
 
-            <div class="katalog-card">
-                <div class="image-container">
-                    <img src="/public/ig.webp" alt="Cover Buku 2" class="book-cover">
-                </div>
-                <div class="book-info">
-                    <h3 class="book-title">Modul Pengantar Multimedia</h3>
-                    <p class="book-author">Penulis: Dedy Indra Setiawan</p>
-                    <p class="book-price">Rp 80.000</p>
-                </div>
-                <a href="http://wa.me/081515709786" target="_blank" class="btn fw-bold w-100 paket-btn-custom"
-                    style="background-color: #002967; color: white; border: 2px solid #002967;">
-                    Order Sekarang
-                </a>
+            <div class="katalog-container text-start" id="tempat-etalase-buku">
             </div>
-
         </div>
     </section>
+
+    <div class="modal fade" id="modalProduk" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header text-white" style="background-color: #002967;">
+                    <h5 class="modal-title fw-bold">Detail Pesanan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4 text-start">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0 text-center">
+                            <div class="bg-light rounded p-3 h-100 d-flex align-items-center justify-content-center border"
+                                style="border-color: #eee;">
+                                <img id="detailGambar" src="" alt="Produk" class="img-fluid rounded"
+                                    style="max-height: 250px; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h4 id="detailJudul" class="fw-bold" style="color: #002967;">Nama Produk</h4>
+                            <p id="detailDeskripsi" class="text-muted small mb-2">Deskripsi singkat produk ada di sini.
+                            </p>
+                            <h5 id="detailHarga" class="fw-bold mb-4" style="color: #333;">Harga Produk</h5>
+
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <label for="inputKuantitas" class="form-label fw-bold"
+                                        style="font-size: 0.9rem; color: #002967;">Jumlah Pesanan</label>
+                                    <input type="number" class="form-control text-center fw-bold" id="inputKuantitas"
+                                        value="1" min="1" style="border: 2px solid #002967; border-radius: 6px;">
+                                </div>
+                                <div class="col-12">
+                                    <label for="inputCatatan" class="form-label fw-bold"
+                                        style="font-size: 0.9rem; color: #002967;">Catatan Pesanan (Opsional)</label>
+                                    <textarea class="form-control" id="inputCatatan" rows="3"
+                                        placeholder="Contoh: Tolong sertakan tanda tangan penulis ya..."
+                                        style="border: 1px solid #ccc; border-radius: 6px; resize: none;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer bg-light border-top-0">
+                    <button type="button" class="btn fw-bold px-4 paket-btn-outline" data-bs-dismiss="modal"
+                        style="border-radius: 6px;">Batal</button>
+                    <button type="button" class="btn fw-bold px-4 d-inline-flex align-items-center paket-btn-custom"
+                        style="border-radius: 6px;" onclick="checkoutWA()">Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="tempat-footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/function/navbar.js"></script>
     <script src="/function/footer.js"></script>
+    <script src="/function/keranjang.js"></script>
+    <script src="/function/databuku.js"></script>
 
 </body>
 

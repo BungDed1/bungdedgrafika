@@ -23,16 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h3 class="fs-5 mb-4">BUNGDED GRAFIKA</h3>
                             <p style="color: #A8B2D1; line-height: 1.8;">Tulis naskahnya, biarkan kami yang mengurus sisanya. Terbitkan dan cetak buku jadi lebih mudah.</p>
                             <div class="d-flex gap-3">
-                                <a href="https://instagram.com/bungdedgrafika" target="_blank" class="d-flex justify-content-center align-items-center bg-white rounded-circle social-icon-custom" style="width: 40px; height: 40px; transition: 0.3s;">
+                                <a href="[https://instagram.com/bungdedgrafika](https://instagram.com/bungdedgrafika)" target="_blank" class="d-flex justify-content-center align-items-center bg-white rounded-circle social-icon-custom" style="width: 40px; height: 40px; transition: 0.3s;">
                                     <img src="/public/ig.webp" alt="Instagram" height="25">
                                 </a>
-                                <a href="http://wa.me/081515709786" target="_blank" class="d-flex justify-content-center align-items-center bg-white rounded-circle social-icon-custom" style="width: 40px; height: 40px; transition: 0.3s;">
+                                <a href="[http://wa.me/081515709786](http://wa.me/081515709786)" target="_blank" class="d-flex justify-content-center align-items-center bg-white rounded-circle social-icon-custom" style="width: 40px; height: 40px; transition: 0.3s;">
                                     <img src="/public/wa.webp" alt="WhatsApp" height="27">
                                 </a>
                             </div>
                         </div>
                         
-                        <div class="col-md-6 mt-5 mt-md-0">
+                        <div class="col-md-6 mt-5 mt-md-0 text-start">
                             <h3 class="fs-5 mb-4">Hubungi Kami di</h3>
                             <ul class="list-unstyled">
                                 

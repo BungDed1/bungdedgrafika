@@ -7,6 +7,17 @@ body {
     background-color: #f4f7f6;
 }
 
+/* Pastikan scroll halus dan tidak tertutup navbar */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+    /* Sesuaikan dengan tinggi navbarmu */
+}
+
+/* Hilangkan garis fokus biru saat diklik (biar rapi) */
+:target {
+    scroll-margin-top: 90px;
+}
 
 .section-offset {
     /* Angka ini menyesuaikan tinggi navbar kamu agar judulnya pas tidak tertutup */
@@ -214,4 +225,137 @@ body {
     /* Teks berubah jadi biru navy */
     border: 2px solid #002967 !important;
     /* Muncul garis pinggir biru navy */
+}
+
+/* Jurus Sakti untuk Memaksa Jarak Menjadi Sempit & Tumpang Tindih */
+#tokobuku {
+    perspective: 1500px;
+    /* Memberikan efek kedalaman 3D yang kuat */
+}
+
+/* Mengatur jarak antar kartu agar lebih mepet di belakang kartu utama */
+.swiper-container-custom .swiper-slide {
+    width: 260px;
+    /* Ukuran kartu yang disesuaikan */
+    opacity: 0.1;
+    /* Kartu di belakang sangat memudar */
+    transition: all 0.5s ease;
+}
+
+/* Kartu Utama di Tengah Depan (Glow & Putih Bersih) */
+.swiper-container-custom .swiper-slide-active {
+    opacity: 1 !important;
+    transform: translateZ(250px) scale(1.1);
+    /* Kartu utama didorong ke depan */
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+    /* Glow putih di belakang kartu utama */
+    z-index: 10;
+}
+
+/* Kartu Tepat di Samping Kiri & Kanan (Masih Jelas) */
+.swiper-container-custom .swiper-slide-next,
+.swiper-container-custom .swiper-slide-prev {
+    opacity: 0.6 !important;
+    transform: translateZ(100px);
+    /* Didorong ke belakang kartu utama */
+    z-index: 5;
+}
+
+/* Menghilangkan panah navigasi agar tampilan bersih di layar lebar */
+.swiper-button-next,
+.swiper-button-prev {
+    display: none !important;
+}
+
+/* ==========================================================================
+   STYLE KHUSUS HALAMAN TOKO PERCETAKAN / KATALOG BUKU
+   ========================================================================== */
+
+.katalog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.katalog-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    padding: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.katalog-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px);
+}
+
+.image-container {
+    aspect-ratio: 1/1;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.book-cover {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+.book-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #002967;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.book-author {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.book-price {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Tombol Utama (Awal Biru -> Hover Putih) */
+.paket-btn-custom {
+    background-color: #002967 !important;
+    color: #ffffff !important;
+    border: 2px solid #002967 !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.paket-btn-custom:hover {
+    background-color: #ffffff !important;
+    color: #002967 !important;
+    border: 2px solid #002967 !important;
+}
+
+/* Tombol Batal (Awal Putih/Transparan -> Hover Biru) */
+.paket-btn-outline {
+    background-color: transparent !important;
+    color: #002967 !important;
+    border: 2px solid #002967 !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.paket-btn-outline:hover {
+    background-color: #002967 !important;
+    color: #ffffff !important;
 }

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran HKI - BungDed Grafika</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/main.css">
+</head>
+
+<body id="top" class="bg-light">
+
+    <div id="tempat-navbar"></div>
+
+    <section class="py-5 mt-5">
+        <div class="container pt-5 mt-4">
+
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-3" style="color: #002967;">Form Pendaftaran HKI (Hak Cipta)</h2>
+                <p class="text-muted">Isi formulir di bawah ini dengan data yang valid sesuai KTP untuk keperluan
+                    legalitas Hak Kekayaan Intelektual Anda.</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm p-4 p-md-5" style="border-radius: 12px;">
+
+                        <form id="formHKI" onsubmit="kirimHKIKeWA(event)">
+
+                            <h5 class="fw-bold mb-4"
+                                style="color: #002967; border-bottom: 2px solid #eee; padding-bottom: 10px;">A. Data
+                                Pencipta (Sesuai KTP)</h5>
+
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="hkiNama"
+                                        placeholder="Contoh: Dedy Indra Setiawan" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">NIK (Nomor Induk
+                                        Kependudukan)</label>
+                                    <input type="number" class="form-control" id="hkiNik" placeholder="16 Digit NIK"
+                                        required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold small text-secondary">Alamat Lengkap</label>
+                                    <textarea class="form-control" id="hkiAlamat" rows="2"
+                                        placeholder="Sesuai KTP (Jalan, RT/RW, Desa, Kec, Kab/Kota, Provinsi)"
+                                        required></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Nomor WhatsApp Aktif</label>
+                                    <input type="text" class="form-control" id="hkiWa" placeholder="Contoh: 08123456789"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Alamat Email Aktif</label>
+                                    <input type="email" class="form-control" id="hkiEmail"
+                                        placeholder="email@contoh.com" required>
+                                </div>
+                            </div>
+
+                            <h5 class="fw-bold mb-4 mt-5"
+                                style="color: #002967; border-bottom: 2px solid #eee; padding-bottom: 10px;">B. Data
+                                Ciptaan</h5>
+
+                            <div class="row g-3 mb-4">
+                                <div class="col-12">
+                                    <label class="form-label fw-bold small text-secondary">Judul Ciptaan</label>
+                                    <input type="text" class="form-control" id="hkiJudul"
+                                        placeholder="Contoh: Seni Memvisualisasikan Naskah" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Jenis Ciptaan</label>
+                                    <select class="form-select" id="hkiJenis" required>
+                                        <option value="" selected disabled>Pilih Jenis Ciptaan...</option>
+                                        <option value="Buku">Buku</option>
+                                        <option value="Modul / Bahan Ajar">Modul / Bahan Ajar</option>
+                                        <option value="Karya Tulis / Artikel">Karya Tulis / Artikel</option>
+                                        <option value="Poster / Pamflet">Poster / Pamflet</option>
+                                        <option value="Program Komputer">Program Komputer</option>
+                                        <option value="Video / Film">Video / Film</option>
+                                        <option value="Lainnya">Lainnya...</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold small text-secondary">Tanggal Pertama Kali
+                                        Diumumkan</label>
+                                    <input type="date" class="form-control" id="hkiTanggal" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold small text-secondary">Deskripsi Singkat
+                                        Ciptaan</label>
+                                    <textarea class="form-control" id="hkiDeskripsi" rows="3"
+                                        placeholder="Jelaskan secara singkat tentang karya Anda (minimal 2-3 kalimat)"
+                                        required></textarea>
+                                </div>
+                            </div>
+
+                            <h5 class="fw-bold mb-3 mt-5"
+                                style="color: #002967; border-bottom: 2px solid #eee; padding-bottom: 10px;">C. Lampiran
+                                Berkas</h5>
+
+                            <div class="alert alert-info small border-0"
+                                style="background-color: #e9f2ff; color: #002967;">
+                                <strong>Penting!</strong> Karena batasan sistem, harap unggah berkas berikut ke
+                                <b>Google Drive</b> Anda, pastikan akses tautannya disetel ke "Siapa saja yang memiliki
+                                link", lalu tempelkan tautannya di bawah ini:
+                                <ul class="mb-0 mt-2">
+                                    <li>Scan KTP Asli</li>
+                                    <li>Scan Surat Pernyataan (Bermaterai)</li>
+                                    <li>File Karya/Ciptaan Asli (PDF/Softcopy)</li>
+                                </ul>
+                            </div>
+
+                            <div class="mb-5">
+                                <label class="form-label fw-bold small text-secondary">Tautan (Link) Google Drive
+                                    Berkas</label>
+                                <input type="url" class="form-control" id="hkiLink"
+                                    placeholder="https://drive.google.com/drive/folders/..." required>
+                            </div>
+
+                            <button type="submit" class="btn fw-bold w-100 py-3 mt-2 paket-btn-custom"
+                                style="background-color: #002967; color: white; border-radius: 8px; font-size: 1.1rem;">
+                                Kirim Formulir Pendaftaran
+                            </button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="tempat-footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/function/navbar.js"></script>
+    <script src="/function/footer.js"></script>
+
+    <script>
+        function kirimHKIKeWA(event) {
+            // Mencegah halaman ter-refresh
+            event.preventDefault();
+
+            // Mengambil nilai dari input form
+            const nama = document.getElementById('hkiNama').value;
+            const nik = document.getElementById('hkiNik').value;
+            const alamat = document.getElementById('hkiAlamat').value;
+            const wa = document.getElementById('hkiWa').value;
+            const email = document.getElementById('hkiEmail').value;
+
+            const judul = document.getElementById('hkiJudul').value;
+            const jenis = document.getElementById('hkiJenis').value;
+            const tanggal = document.getElementById('hkiTanggal').value;
+            const deskripsi = document.getElementById('hkiDeskripsi').value;
+
+            const linkDrive = document.getElementById('hkiLink').value;
+
+            // Merakit pesan WhatsApp
+            const waNumber = "6281515709786"; // Nomor admin BungDed Grafika
+            const pesan = `Halo Admin BungDed Grafika, saya ingin mendaftar HKI (Hak Cipta). Berikut adalah detail formulir saya:%0A%0A` +
+                `*--- DATA PENCIPTA ---*%0A` +
+                `- *Nama*: ${nama}%0A` +
+                `- *NIK*: ${nik}%0A` +
+                `- *Alamat*: ${alamat}%0A` +
+                `- *No. WA*: ${wa}%0A` +
+                `- *Email*: ${email}%0A%0A` +
+                `*--- DATA CIPTAAN ---*%0A` +
+                `- *Judul*: ${judul}%0A` +
+                `- *Jenis*: ${jenis}%0A` +
+                `- *Tgl Diumumkan*: ${tanggal}%0A` +
+                `- *Deskripsi*: ${deskripsi}%0A%0A` +
+                `*--- LAMPIRAN BERKAS ---*%0A` +
+                `- *Link GDrive*: ${linkDrive}%0A%0A` +
+                `Mohon segera diproses. Terima kasih!`;
+
+            // Redirect ke WhatsApp
+            const waLink = `https://wa.me/${waNumber}?text=${pesan}`;
+            window.open(waLink, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>
