@@ -6,84 +6,319 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Utama - BungDed Grafika</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link rel="stylesheet" href="/style/main.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* ================= HERO SECTION CUSTOM STYLES ================= */
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #001533 0%, #002967 100%);
+        }
+
+        /* Pola Titik-titik (Grid) */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .circle-decoration-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            top: -200px;
+            right: -150px;
+            pointer-events: none;
+        }
+
+        .circle-decoration-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            pointer-events: none;
+        }
+
+        .text-highlight {
+            color: #FFCA59;
+        }
+
+        /* Tombol Hero Custom */
+        .btn-hero-custom {
+            background-color: #ffffff !important;
+            color: #002967 !important;
+            border: 2px solid #ffffff !important;
+            transition: all 0.3s ease-in-out !important;
+        }
+
+        .btn-hero-custom:hover {
+            background-color: transparent !important;
+            color: #ffffff !important;
+            border: 2px solid #ffffff !important;
+        }
+
+        /* Kartu Kaca Melayang (Glassmorphism Trust Badges) */
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            color: white;
+            animation: float 6s ease-in-out infinite;
+            white-space: nowrap;
+        }
+
+        /* Koordinat Kartu Melayang */
+        .fc-1 {
+            top: 0px;
+            right: 40px;
+            animation-delay: 0s;
+        }
+
+        .fc-2 {
+            top: 120px;
+            right: -40px;
+            animation-delay: 2s;
+        }
+
+        .fc-3 {
+            top: 240px;
+            right: 20px;
+            animation-delay: 4s;
+        }
+
+        .icon-wrapper {
+            background: #FFCA59;
+            color: #002967;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* Efek melayang halus untuk kartu layanan/paket */
+        .premium-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 41, 103, 0.08) !important;
+            background-color: #ffffff;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 41, 103, 0.08) !important;
+            border-color: rgba(0, 41, 103, 0.2) !important;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding-bottom: 10px;
+            color: #555;
+            display: flex;
+            align-items: start;
+        }
+
+        .feature-list li i {
+            color: #002967;
+            font-size: 1.1rem;
+            margin-right: 10px;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                text-align: center !important;
+                padding-top: 120px !important;
+                padding-bottom: 60px !important;
+            }
+
+            .hero-section .row {
+                justify-content: center !important;
+            }
+
+            .section-title-mobile {
+                text-align: center !important;
+            }
+
+            .hero-badge {
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 
-<body id="top" class="bg-light">
+<body id="top">
 
     <div id="tempat-navbar"></div>
 
-    <section class="hero-section position-relative d-flex align-items-center"
-        style="aspect-ratio: 16/9; min-height: 100vh; background: url('/public/bannerc.webp') center/cover no-repeat;">
-        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.4;"></div>
+    <section class="hero-section position-relative d-flex flex-column justify-content-center bg-gradient-primary"
+        style="min-height: 100vh; overflow: hidden; padding-top: 90px;">
 
-        <div class="container position-relative z-1 text-white text-start" style="transform: translateY(-50px);">
-            <div class="row justify-content-start">
-                <div class="col-lg-8 col-md-10">
-                    <h1 class="display-5 fw-bold mb-4" style="line-height: 1.3;">
-                        Tulis naskahnya, biarkan kami yang mengurus sisanya
+        <div class="grid-overlay"></div>
+        <div class="circle-decoration-1"></div>
+        <div class="circle-decoration-2"></div>
+
+        <div class="container position-relative z-1 text-white">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col-lg-6 col-md-10 text-start">
+                    <span class="badge rounded-pill mb-4 px-3 py-2 hero-badge d-inline-flex align-items-center gap-2"
+                        style="background-color: rgba(255,255,255,0.15); font-weight: 600; letter-spacing: 1.5px;">
+                        <span
+                            style="width: 8px; height: 8px; background-color: #FFCA59; border-radius: 50%; display: inline-block;"></span>
+                        BUNGDED GRAFIKA
+                    </span>
+                    <h1 class="display-4 fw-bold mb-4" style="line-height: 1.2;">
+                        Tulis naskahnya,<br>biarkan kami yang mengurus <span class="text-highlight">sisanya.</span>
                     </h1>
-                    <p class="lead mb-4" style="font-size: 1.1rem; opacity: 0.9; max-width: 700px;">
-                        Kami siap menerbitkan buku ajar, referensi, monograf, hingga fiksi dalam bentuk cetak maupun
-                        E-Book.
+                    <p class="lead mb-5" style="font-size: 1.15rem; color: #A8B2D1; max-width: 550px;">
+                        Mitra terpercaya untuk menerbitkan buku ajar, referensi, monograf, hingga fiksi dalam wujud
+                        cetak eksklusif maupun E-Book digital.
                     </p>
+
                     <a href="http://wa.me/081515709786" target="_blank"
-                        class="btn fw-bold px-4 py-2 rounded-pill shadow-sm d-inline-flex align-items-center btn-hero-custom"
-                        style="font-size: 0.95rem;">
-                        <img src="/public/wa.webp" alt="WA" width="18" class="me-2">
-                        HUBUNGI SEKARANG
+                        class="btn fw-bold px-4 py-2 rounded shadow d-inline-flex align-items-center btn-hero-custom"
+                        style="font-size: 1rem; border-radius: 8px;">
+                        <i class="bi bi-whatsapp me-2"></i> Konsultasi Gratis Sekarang
                     </a>
                 </div>
+
+                <div class="col-lg-5 d-none d-lg-block position-relative" style="height: 360px;">
+
+                    <div class="floating-card fc-1 shadow-lg">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="icon-wrapper"><i class="bi bi-stars"></i></div>
+                            <div>
+                                <h5 class="mb-0 fw-bold">100+</h5>
+                                <small class="opacity-75">Penulis Terbit</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card fc-2 shadow-lg">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="icon-wrapper"><i class="bi bi-shield-check"></i></div>
+                            <div>
+                                <h5 class="mb-0 fw-bold">ISBN Resmi</h5>
+                                <small class="opacity-75">Terdaftar Perpusnas</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card fc-3 shadow-lg">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="icon-wrapper"><i class="bi bi-palette"></i></div>
+                            <div>
+                                <h5 class="mb-0 fw-bold">Free Desain</h5>
+                                <small class="opacity-75">Cover & Layout Premium</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="layanan" class="position-relative d-flex align-items-center"
-        style="aspect-ratio: 16/9; min-height: 100vh; background: url('/public/bannera.webp') center/cover no-repeat;">
+    <section id="layanan" class="position-relative d-flex align-items-center py-5"
+        style="min-height: 100vh; background-color: #f8f9fa;">
 
-        <div class="container position-relative z-1 w-100 text-start" style="transform: translateY(-50px);">
-            <div class="mb-5">
-                <h2 class="fw-bold" style="color: #002967;">Daftar Layanan Kami</h2>
-                <p class="text-muted">Pilih layanan yang sesuai dengan kebutuhan naskah dan buku Anda.</p>
+        <div class="container position-relative z-1 w-100 text-start my-5">
+            <div class="mb-5 section-title-mobile">
+                <span class="text-uppercase fw-bold"
+                    style="color: #002967; letter-spacing: 2px; font-size: 0.85rem;">Layanan Kami</span>
+                <h2 class="fw-bold display-6 mt-2" style="color: #002967; letter-spacing: -1px;">Daftar Layanan Unggulan
+                </h2>
+                <p class="text-muted fs-5">Pilih solusi yang paling tepat untuk menyempurnakan karya Anda.</p>
             </div>
+
             <div class="row g-4 justify-content-start">
-                <div class="col-md-4 col-sm-6">
-                    <div class="card h-100 border-0 shadow-sm text-start p-4 custom-card-hover">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-start p-4 premium-card rounded-4">
                         <div class="card-body d-flex flex-column p-0">
-                            <div class="display-4 mb-3"></div>
-                            <h3 class="h4 fw-bold" style="color: #002967;">Penerbitan Buku</h3>
-                            <p class="text-muted flex-grow-1">Layanan menyeluruh dari hulu ke hilir untuk mengubah
-                                naskah Anda menjadi buku berkualitas. Termasuk pengurusan ISBN dan sertifikat penulis.
-                            </p>
-                            <a href="#paket"
-                                class="btn mt-auto w-100 fw-bold rounded btn-layanan-custom">Selengkapnya</a>
+                            <i class="bi bi-book display-4 mb-3" style="color: #002967;"></i>
+                            <h3 class="h4 fw-bold mb-3" style="color: #002967;">Penerbitan Buku</h3>
+                            <p class="text-muted flex-grow-1" style="line-height: 1.6;">Layanan komprehensif dari hulu
+                                ke hilir untuk mengubah naskah Anda menjadi buku berkualitas. Termasuk pengurusan ISBN
+                                resmi & sertifikat.</p>
+                            <a href="/pages/Produk/penerbitan/index.html"
+                                class="btn mt-3 w-100 fw-bold rounded paket-btn-custom py-2">Lihat Paket
+                                Penerbitan</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card h-100 border-0 shadow-sm text-start p-4 custom-card-hover">
-                        <div class="card-body d-flex flex-column p-0">
-                            <div class="display-4 mb-3"></div>
-                            <h3 class="h4 fw-bold" style="color: #002967;">Percetakan</h3>
-                            <p class="text-muted flex-grow-1">Cetak buku dengan kualitas kertas (HVS/Bookpaper) dan
-                                warna terbaik, proses cepat, dan harga yang bersahabat.</p>
 
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-start p-4 premium-card rounded-4">
+                        <div class="card-body d-flex flex-column p-0">
+                            <i class="bi bi-printer display-4 mb-3" style="color: #002967;"></i>
+                            <h3 class="h4 fw-bold mb-3" style="color: #002967;">Percetakan Digital</h3>
+                            <p class="text-muted flex-grow-1" style="line-height: 1.6;">Cetak buku dengan kualitas
+                                kertas (HVS/Bookpaper) dan resolusi warna terbaik. Proses pengerjaan cepat dengan harga
+                                kompetitif.</p>
                             <a href="/pages/Produk/percetakan/index.html"
-                                class="btn mt-auto w-100 fw-bold rounded btn-layanan-custom">Selengkapnya</a>
-
+                                class="btn mt-3 w-100 fw-bold rounded paket-btn-custom py-2">Katalog Percetakan</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="card h-100 border-0 shadow-sm text-start p-4 custom-card-hover">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm text-start p-4 premium-card rounded-4">
                         <div class="card-body d-flex flex-column p-0">
-                            <div class="display-4 mb-3"></div>
-                            <h3 class="h4 fw-bold" style="color: #002967;">Daftar HKI</h3>
-                            <p class="text-muted flex-grow-1">Lindungi karya intelektual Anda secara legal dengan
-                                layanan pendaftaran Hak Cipta bersama kami agar aman dari plagiasi.</p>
+                            <i class="bi bi-shield-check display-4 mb-3" style="color: #002967;"></i>
+                            <h3 class="h4 fw-bold mb-3" style="color: #002967;">Daftar HKI</h3>
+                            <p class="text-muted flex-grow-1" style="line-height: 1.6;">Lindungi karya intelektual Anda
+                                secara legal dengan layanan pendaftaran Hak Cipta bersama kami agar aman dari plagiasi.
+                            </p>
                             <a href="/pages/Produk/hki/index.html"
-                                class="btn mt-auto w-100 fw-bold rounded btn-layanan-custom">Selengkapnya</a>
+                                class="btn mt-3 w-100 fw-bold rounded paket-btn-custom py-2">Info Pendaftaran</a>
                         </div>
                     </div>
                 </div>
@@ -91,86 +326,91 @@
         </div>
     </section>
 
-    <section id="paket" class="position-relative d-flex align-items-center"
-        style="aspect-ratio: 16/9; min-height: 100vh; background: url('/public/bannerd.webp') center/cover no-repeat;">
-        <div class="container position-relative z-1 w-100 text-start" style="transform: translateY(-50px);">
-            <h2 class="fw-bold mb-5" style="color: #002967;">Paket Penerbitan</h2>
-            <div class="row g-4 justify-content-start">
+    <section id="paket" class="position-relative d-flex align-items-center py-5 bg-white" style="min-height: 100vh;">
+        <div class="container position-relative z-1 w-100 text-start my-5">
+
+            <div class="text-center mb-5 section-title-mobile">
+                <span class="text-uppercase fw-bold"
+                    style="color: #002967; letter-spacing: 2px; font-size: 0.85rem;">Harga Transparan</span>
+                <h2 class="fw-bold display-6 mt-2" style="color: #002967; letter-spacing: -1px;">Paket Penerbitan</h2>
+            </div>
+
+            <div class="row g-4 justify-content-center align-items-center">
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 p-4 shadow-sm bg-white"
-                        style="border: 1px solid #002967; border-radius: 8px;">
-                        <strong class="fs-4 mb-3 pb-3 border-bottom d-block text-start"
-                            style="color: #002967; border-color: #002967 !important;">Paket Ordal</strong>
-                        <div class="card-body p-0 d-flex flex-column text-start text-secondary"
-                            style="font-size: 15px;">
-                            <p class="mb-2">2 eksemplar soft cover</p>
-                            <p class="mb-2">ISBN cetak/digital</p>
-                            <p class="mb-2">Ukuran A5 (hvs/bookpaper)</p>
-                            <p class="mb-2">Maksimal 150 halaman</p>
-                            <p class="mb-2">Free Layout</p>
-                            <p class="mb-2">Free Design cover</p>
-                            <p class="mb-4 flex-grow-1">Sertifikat penulis</p>
+                    <div class="card h-100 p-4 shadow-sm premium-card rounded-4">
+                        <div class="card-body d-flex flex-column p-0">
+                            <h4 class="fw-bold mb-1" style="color: #6c757d;">Paket Ordal</h4>
+                            <p class="text-muted small mb-4">Cocok untuk pemula & naskah ringan</p>
 
-                            <p class="fw-bold fs-5 text-dark mb-3">Rp 1.500.000</p>
-                            <button class="btn fw-bold w-100 paket-btn-custom"
-                                style="background-color: #002967; color: white; border: 2px solid #002967;"
-                                onclick="bukaModal('Paket Ordal', 'Fasilitas: 2 eks soft cover, ISBN, Free Layout & Cover, Sertifikat Penulis.', 'Rp 1.500.000', '')">
+                            <ul class="feature-list flex-grow-1 mb-4">
+                                <li><i class="bi bi-check-circle-fill"></i> 2 eksemplar soft cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> ISBN Cetak & Digital</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Ukuran A5 (HVS/Bookpaper)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Maksimal 150 halaman</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Free Layout & Design Cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Sertifikat Penulis</li>
+                            </ul>
+
+                            <h3 class="fw-bold text-dark mb-3">Rp 1.500.000</h3>
+                            <a href="/pages/produk/penerbitan/index.html"
+                                class="btn fw-bold w-100 paket-btn-custom py-2 d-inline-block text-center">
                                 Order Sekarang
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 p-4 shadow-sm bg-white"
-                        style="border: 1px solid #002967; border-radius: 8px;">
-                        <strong class="fs-4 mb-3 pb-3 border-bottom d-block text-start"
-                            style="color: #002967; border-color: #002967 !important;">Paket CEO</strong>
-                        <div class="card-body p-0 d-flex flex-column text-start text-secondary"
-                            style="font-size: 15px;">
-                            <p class="mb-2">5 eksemplar soft cover</p>
-                            <p class="mb-2">ISBN cetak/digital</p>
-                            <p class="mb-2">Ukuran A5 (hvs/bookpaper)</p>
-                            <p class="mb-2">Maksimal 250 halaman</p>
-                            <p class="mb-2">Free Layout</p>
-                            <p class="mb-2">Free Design cover</p>
-                            <p class="mb-2">Sertifikat penulis</p>
-                            <p class="mb-4 flex-grow-1">Pamflet Promosi</p>
+                    <div class="card h-100 p-4 shadow-lg bg-white premium-card rounded-4 position-relative"
+                        style="border: 2px solid #002967 !important; transform: scale(1.03); z-index: 2;">
+                        <div class="position-absolute top-0 start-50 translate-middle bg-warning text-dark px-3 py-1 rounded-pill fw-bold"
+                            style="font-size: 0.8rem; letter-spacing: 1px;">TERLARIS</div>
 
-                            <p class="fw-bold fs-5 text-dark mb-3">Rp 2.500.000</p>
-                            <button class="btn fw-bold w-100 paket-btn-custom"
-                                style="background-color: #002967; color: white; border: 2px solid #002967;"
-                                onclick="bukaModal('Paket CEO', 'Fasilitas: 5 eks soft cover, ISBN, Free Layout & Cover, Pamflet Promosi.', 'Rp 2.500.000', '')">
+                        <div class="card-body d-flex flex-column p-0 mt-2">
+                            <h4 class="fw-bold mb-1" style="color: #002967;">Paket CEO</h4>
+                            <p class="text-muted small mb-4">Standar profesional untuk dosen & praktisi</p>
+
+                            <ul class="feature-list flex-grow-1 mb-4">
+                                <li><i class="bi bi-check-circle-fill"></i> 5 eksemplar soft cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> ISBN Cetak & Digital</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Ukuran A5 (HVS/Bookpaper)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Maksimal 250 halaman</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Free Layout & Design Cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Sertifikat Penulis</li>
+                                <li><i class="bi bi-check-circle-fill"></i> <strong>Bonus: Pamflet Promosi</strong></li>
+                            </ul>
+
+                            <h3 class="fw-bold text-dark mb-3">Rp 2.500.000</h3>
+                            <a href="/pages/produk/penerbitan/index.html"
+                                class="btn fw-bold w-100 paket-btn-custom py-2 d-inline-block text-center">
                                 Order Sekarang
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
-                    <div class="card h-100 p-4 shadow-sm bg-white"
-                        style="border: 1px solid #002967; border-radius: 8px;">
-                        <strong class="fs-4 mb-3 pb-3 border-bottom d-block text-start"
-                            style="color: #002967; border-color: #002967 !important;">Paket Kraton</strong>
-                        <div class="card-body p-0 d-flex flex-column text-start text-secondary"
-                            style="font-size: 15px;">
-                            <p class="mb-2">10 eksemplar soft cover</p>
-                            <p class="mb-2">ISBN cetak/digital</p>
-                            <p class="mb-2">Ukuran A5 (hvs/bookpaper)</p>
-                            <p class="mb-2">Maksimal 350 halaman</p>
-                            <p class="mb-2">Free Layout</p>
-                            <p class="mb-2">Free Design cover</p>
-                            <p class="mb-2">Sertifikat penulis</p>
-                            <p class="mb-2">Pamflet Promosi</p>
-                            <p class="mb-4 flex-grow-1">Promosi Medsos/Website BungDed Grafika</p>
+                    <div class="card h-100 p-4 shadow-sm premium-card rounded-4">
+                        <div class="card-body d-flex flex-column p-0">
+                            <h4 class="fw-bold mb-1" style="color: #6c757d;">Paket Kraton</h4>
+                            <p class="text-muted small mb-4">Solusi lengkap dengan pemasaran</p>
 
-                            <p class="fw-bold fs-5 text-dark mb-3">Rp 4.000.000</p>
-                            <button class="btn fw-bold w-100 paket-btn-custom"
-                                style="background-color: #002967; color: white; border: 2px solid #002967;"
-                                onclick="bukaModal('Paket Kraton', 'Fasilitas: 10 eks soft cover, ISBN, Free Layout & Cover, Promosi Medsos.', 'Rp 4.000.000', '')">
+                            <ul class="feature-list flex-grow-1 mb-4">
+                                <li><i class="bi bi-check-circle-fill"></i> 10 eksemplar soft cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> ISBN Cetak & Digital</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Ukuran A5 (HVS/Bookpaper)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Maksimal 350 halaman</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Free Layout & Design Cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Sertifikat & Pamflet Promosi</li>
+                                <li><i class="bi bi-check-circle-fill"></i> <strong>Promosi Medsos/Website</strong></li>
+                            </ul>
+
+                            <h3 class="fw-bold text-dark mb-3">Rp 4.000.000</h3>
+                            <a href="/pages/produk/penerbitan/index.html"
+                                class="btn fw-bold w-100 paket-btn-custom py-2 d-inline-block text-center">
                                 Order Sekarang
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -179,22 +419,21 @@
         </div>
     </section>
 
-    <section id="tokobuku" class="position-relative d-flex align-items-center"
-        style="aspect-ratio: 16/9; min-height: 100vh; background: url('/public/bannerb.webp') center/cover no-repeat;">
-        <div class="container position-relative z-1 w-100 text-start">
+    <section id="tokobuku" class="position-relative d-flex align-items-center py-5"
+        style="min-height: 100vh; background-color: #f8f9fa;">
+        <div class="container position-relative z-1 w-100 text-start my-5">
 
-            <div class="mb-5">
-                <h2 class="fw-bold mb-3" style="color: #002967;">Etalase Buku</h2>
-                <p class="text-muted">Intip beberapa karya terbaik yang telah diterbitkan bersama kami.</p>
+            <div class="mb-5 text-center section-title-mobile">
+                <h2 class="fw-bold display-6 mb-3" style="color: #002967; letter-spacing: -1px;">Karya Unggulan</h2>
+                <p class="text-muted fs-5">Intip beberapa buku inspiratif yang telah lahir dari dapur redaksi kami.</p>
             </div>
 
             <div class="katalog-container text-start" id="tempat-etalase-buku">
             </div>
 
-            <div class="text-center w-100 mt-4">
-                <a href="/pages/Toko Buku/index.html" class="btn fw-bold px-4 py-2 paket-btn-custom"
-                    style="background-color: #002967; color: white; border: 2px solid #002967; border-radius: 8px;">
-                    Lihat Selengkapnya
+            <div class="text-center w-100 mt-5">
+                <a href="/pages/Toko Buku/index.html" class="btn fw-bold px-5 py-3 paket-btn-custom rounded-pill">
+                    Lihat Seluruh Koleksi
                 </a>
             </div>
 
@@ -202,47 +441,69 @@
     </section>
 
     <div class="modal fade" id="modalProduk" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-header text-white" style="background-color: #002967;">
-                    <h5 class="modal-title fw-bold">Detail Pesanan</h5>
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <div class="modal-header border-0 pb-0 pt-4 px-4 text-white" style="background-color: #002967;">
+                    <h5 class="modal-title fw-bold fs-4">Detail Pesanan</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body p-4 text-start">
+                <div
+                    style="height: 20px; background-color: #002967; border-bottom-left-radius: 50%; border-bottom-right-radius: 50%; margin-bottom: 20px;">
+                </div>
 
-                    <img id="detailGambar" src="" alt="" class="d-none">
-
-                    <div class="col-12">
-                        <h4 id="detailJudul" class="fw-bold" style="color: #002967;">Nama Produk</h4>
-                        <p id="detailDeskripsi" class="text-muted small mb-3">Deskripsi singkat produk ada di sini.</p>
-                        <h5 id="detailHarga" class="fw-bold mb-4" style="color: #333;">Harga Produk</h5>
-
-                        <div class="row g-3">
-                            <div class="col-12 col-sm-6">
-                                <label for="inputKuantitas" class="form-label fw-bold"
-                                    style="font-size: 0.9rem; color: #002967;">Jumlah Pesanan</label>
-                                <input type="number" class="form-control text-center fw-bold" id="inputKuantitas"
-                                    value="1" min="1" style="border: 2px solid #002967; border-radius: 6px;">
+                <div class="modal-body px-4 pb-4 text-start">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0 text-center">
+                            <div class="bg-light rounded-3 p-3 h-100 d-flex align-items-center justify-content-center border"
+                                style="border-color: #e2e8f0 !important;">
+                                <img id="detailGambar" src="" alt="Produk" class="img-fluid rounded"
+                                    style="max-height: 250px; object-fit: contain;">
                             </div>
-                            <div class="col-12">
-                                <label for="inputCatatan" class="form-label fw-bold"
-                                    style="font-size: 0.9rem; color: #002967;">Catatan Pesanan (Opsional)</label>
-                                <textarea class="form-control" id="inputCatatan" rows="3"
-                                    placeholder="Contoh: Mohon info cara pengiriman naskahnya..."
-                                    style="border: 1px solid #ccc; border-radius: 6px; resize: none;"></textarea>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h4 id="detailJudul" class="fw-bold mb-2" style="color: #002967; letter-spacing: -0.5px;">
+                                Nama Produk</h4>
+                            <p id="detailDeskripsi" class="text-muted small mb-4" style="line-height: 1.6;">Deskripsi
+                                singkat produk ada di sini.</p>
+
+                            <div class="p-3 bg-light rounded-3 mb-4 border" style="border-color: #e2e8f0 !important;">
+                                <span class="d-block text-muted small fw-bold mb-1 text-uppercase">Total Biaya:</span>
+                                <h3 id="detailHarga" class="fw-bold mb-0" style="color: #002967;">Harga Produk</h3>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-5">
+                                    <label for="inputKuantitas"
+                                        class="form-label fw-bold small text-muted text-uppercase">Jumlah</label>
+                                    <input type="number" class="form-control form-control-lg text-center fw-bold"
+                                        id="inputKuantitas" value="1" min="1"
+                                        style="border: 2px solid #cbd5e1; border-radius: 8px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <label for="inputCatatan"
+                                        class="form-label fw-bold small text-muted text-uppercase">Catatan
+                                        (Opsional)</label>
+                                    <textarea class="form-control" id="inputCatatan" rows="2"
+                                        placeholder="Contoh: Info cara kirim naskah..."
+                                        style="border: 2px solid #cbd5e1; border-radius: 8px; resize: none;"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal-footer bg-light border-top-0">
-                    <button type="button" class="btn fw-bold px-4 paket-btn-outline" data-bs-dismiss="modal"
-                        style="border-radius: 6px;">Batal</button>
-                    <button type="button" class="btn fw-bold px-4 d-inline-flex align-items-center paket-btn-custom"
-                        style="border-radius: 6px; background-color: #002967; color: white;"
-                        onclick="checkoutWA()">Pesan Sekarang
+                <div class="modal-footer bg-light border-top-0 px-4 py-3">
+                    <button type="button" class="btn fw-bold px-4" data-bs-dismiss="modal"
+                        style="background-color: transparent; border: 2px solid #002967; color: #002967; border-radius: 8px;">
+                        Batal
+                    </button>
+                    <button type="button" class="btn fw-bold px-5 paket-btn-custom shadow-sm"
+                        style="border-radius: 8px;" onclick="checkoutWA()">
+                        Pesan Sekarang
                     </button>
                 </div>
             </div>
@@ -254,7 +515,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/function/navbar.js"></script>
     <script src="/function/footer.js"></script>
-
     <script src="/function/keranjang.js"></script>
     <script src="/function/databuku.js"></script>
 

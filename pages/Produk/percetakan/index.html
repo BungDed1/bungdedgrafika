@@ -6,199 +6,740 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Percetakan - BungDed Grafika</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <link rel="stylesheet" href="/style/main.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #001533 0%, #002967 100%);
+        }
+
+        .circle-decoration-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            top: -100px;
+            right: -50px;
+            pointer-events: none;
+        }
+
+        .circle-decoration-2 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            bottom: -50px;
+            left: 10%;
+            pointer-events: none;
+        }
+
+        /* ================= DESAIN KARTU OFFICIAL STORE ================= */
+        .katalog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 16px;
+            padding: 10px 0 30px 0;
+        }
+
+        .katalog-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .katalog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-color: #002967;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 100%;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Biar fotonya memenuhi kotak dengan rapi */
+            transition: transform 0.3s ease;
+        }
+
+        .katalog-card:hover .image-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1f2937;
+            line-height: 1.4;
+            margin-bottom: 6px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.8em;
+        }
+
+        .product-rating {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #002967;
+            margin-top: auto;
+            margin-bottom: 6px;
+        }
+
+        .product-location {
+            font-size: 0.75rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .btn-bungded {
+            background-color: #002967 !important;
+            color: #ffffff !important;
+            border: 2px solid #002967 !important;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 0;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .btn-bungded:hover,
+        .btn-bungded:active,
+        .btn-bungded:focus {
+            background-color: #ffffff !important;
+            color: #002967 !important;
+            border: 2px solid #002967 !important;
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 576px) {
+            .katalog-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .card-content {
+                padding: 10px;
+            }
+
+            .product-title {
+                font-size: 0.85rem;
+            }
+
+            .product-price {
+                font-size: 1.05rem;
+            }
+
+            .product-location {
+                margin-bottom: 12px;
+            }
+        }
+    </style>
 </head>
 
-<body id="top" class="bg-light">
+<body id="top">
 
     <div id="tempat-navbar"></div>
 
-    <section class="py-5 mt-5 position-relative"
-        style="background: url('/public/bannerd.webp') center/cover no-repeat; min-height: 100vh;">
-        <div class="container pt-5 mt-4 text-center">
-            <h2 class="fw-bold mb-3" style="color: #002967;">Layanan Percetakan & Digital Print</h2>
-            <p class="text-muted mb-5">Solusi cetak cepat, berkualitas, dan harga bersahabat untuk segala kebutuhan
-                Anda.</p>
+    <section
+        class="position-relative d-flex flex-column justify-content-center text-center bg-gradient-primary header-section"
+        style="padding-top: 140px; padding-bottom: 60px; overflow: hidden;">
+
+        <div class="circle-decoration-1"></div>
+        <div class="circle-decoration-2"></div>
+
+        <div class="container position-relative z-1 text-white">
+            <span class="badge rounded-pill mb-3 px-3 py-2"
+                style="background-color: rgba(255,255,255,0.15); font-weight: 600; letter-spacing: 1px;">
+                KATALOG OFFICIAL STORE
+            </span>
+            <h1 class="display-5 fw-bold mb-3">Layanan Percetakan Digital</h1>
+            <p class="lead mx-auto opacity-75" style="max-width: 650px; font-size: 1.1rem;">
+                Kualitas cetak premium dengan harga bersahabat. Pilih layanan sesuai kebutuhan Anda.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-4 py-md-5">
+        <div class="container position-relative z-2">
+
+            <div class="mb-4 mt-2">
+                <h2 class="fw-bold" style="color: #002967; font-size: 1.6rem;">Printing & Cetak Dokumen</h2>
+                <div
+                    style="width: 60px; height: 4px; background-color: #FFCA59; border-radius: 2px; margin-bottom: 10px;">
+                </div>
+            </div>
 
             <div class="katalog-container">
-
-                <div class="katalog-card shadow-sm">
-                    <div class="image-container">
-                        <img src="/public/produk/banner.webp" alt="Banner" class="book-cover">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1561086657-69c762512f62?w=400&q=80" alt="Banner">
                     </div>
-                    <div class="book-info flex-grow-1">
-                        <h3 class="book-title">Cetak Banner / Spanduk</h3>
-                        <p class="book-author">Bahan Flexi 280gr/340gr, tajam & awet untuk promosi outdoor.</p>
-                        <p class="book-price">Rp 25.000 /m</p>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Cetak Banner / Spanduk</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Rp 20.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ meter</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Banner', 'Cetak Banner / Spanduk', 'Rp 20.000 / meter', 'https://images.unsplash.com/photo-1561086657-69c762512f62?w=400&q=80')">Order
+                            Sekarang</button>
                     </div>
-                    <button class="btn fw-bold w-100 paket-btn-custom"
-                        style="background-color: #002967; color: white; border: 2px solid #002967;"
-                        onclick="bukaModal('Cetak Banner / Spanduk', 'Bahan Flexi 280gr/340gr, tajam & awet untuk promosi outdoor.', 'Rp 25.000 /m', '/public/produk/banner.webp')">
-                        Order Sekarang
-                    </button>
                 </div>
 
-                <div class="katalog-card shadow-sm">
-                    <div class="image-container">
-                        <img src="/public/produk/undangan.webp" alt="Undangan" class="book-cover">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1589087394125-9aee4f6b4d40?w=400&q=80"
+                            alt="Kartu Nama"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Kartu Nama (Ukuran KTP, AP 260 Gsm)</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 29 pcs</div>
+                        <div class="product-price">Rp 280 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Kartu Nama', 'Kartu Nama Ukuran KTP. Minimal order 29 pcs.', 'Rp 280 / pcs', 'https://images.unsplash.com/photo-1589087394125-9aee4f6b4d40?w=400&q=80')">Order
+                            Sekarang</button>
                     </div>
-                    <div class="book-info flex-grow-1">
-                        <h3 class="book-title">Undangan Pernikahan</h3>
-                        <p class="book-author">Desain custom elegan, tersedia berbagai jenis kertas premium.</p>
-                        <p class="book-price">Rp 2.000 /pcs</p>
-                    </div>
-                    <button class="btn fw-bold w-100 paket-btn-custom"
-                        style="background-color: #002967; color: white; border: 2px solid #002967;"
-                        onclick="bukaModal('Undangan Pernikahan', 'Desain custom elegan, tersedia berbagai jenis kertas premium.', 'Rp 2.000 /pcs', '/public/produk/undangan.webp')">
-                        Order Sekarang
-                    </button>
                 </div>
 
-                <div class="katalog-card shadow-sm">
-                    <div class="image-container">
-                        <img src="/public/produk/stiker.webp" alt="Stiker" class="book-cover">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&q=80"
+                            alt="Sertifikat"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Sertifikat (AP 260 Gsm)</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 10 pcs</div>
+                        <div class="product-price">Rp 2.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Sertifikat AP260', 'Sertifikat bahan Art Paper 260 Gsm. Min 10 pcs.', 'Rp 2.000 / pcs', 'https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=400&q=80')">Order
+                            Sekarang</button>
                     </div>
-                    <div class="book-info flex-grow-1">
-                        <h3 class="book-title">Stiker Label Produk</h3>
-                        <p class="book-author">Stiker Bontax/Vinyl + Cutting sesuai bentuk (Bulat/Kotak/Pola).</p>
-                        <p class="book-price">Rp 12.500 /lembar A3</p>
-                    </div>
-                    <button class="btn fw-bold w-100 paket-btn-custom"
-                        style="background-color: #002967; color: white; border: 2px solid #002967;"
-                        onclick="bukaModal('Stiker Label Produk', 'Stiker Bontax/Vinyl + Cutting sesuai bentuk (Bulat/Kotak/Pola).', 'Rp 12.500 /lembar A3', '/public/produk/stiker.webp')">
-                        Order Sekarang
-                    </button>
                 </div>
 
-                <div class="katalog-card shadow-sm">
-                    <div class="image-container">
-                        <img src="/public/produk/print.webp" alt="Print" class="book-cover">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1589330694653-efa647611dc8?w=400&q=80"
+                            alt="Sertifikat"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Sertifikat (Concord/Linen)</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 10 pcs</div>
+                        <div class="product-price">Rp 4.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Sertifikat Linen', 'Sertifikat bahan Concord atau Linen premium. Min 10 pcs.', 'Rp 4.000 / pcs', 'https://images.unsplash.com/photo-1589330694653-efa647611dc8?w=400&q=80')">Order
+                            Sekarang</button>
                     </div>
-                    <div class="book-info flex-grow-1">
-                        <h3 class="book-title">Print & Fotocopy</h3>
-                        <p class="book-author">Cetak dokumen, tugas akhir, atau penggandaan berkas super cepat.</p>
-                        <p class="book-price">Rp 500 /lembar</p>
-                    </div>
-                    <button class="btn fw-bold w-100 paket-btn-custom"
-                        style="background-color: #002967; color: white; border: 2px solid #002967;"
-                        onclick="bukaModal('Print & Fotocopy', 'Cetak dokumen, tugas akhir, atau penggandaan berkas super cepat.', 'Rp 500 /lembar', '/public/produk/print.webp')">
-                        Order Sekarang
-                    </button>
                 </div>
 
-                <div class="katalog-card shadow-sm">
-                    <div class="image-container">
-                        <img src="/public/produk/kartunama.webp" alt="Kartu Nama" class="book-cover">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400&q=80"
+                            alt="Undangan"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Cetak Undangan Custom</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 16 pcs</div>
+                        <div class="product-price" style="font-size: 1rem;">Harga Menyesuaikan</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Undangan Custom', 'Cetak undangan. Harga menyesuaikan spek. Min 16 pcs.', 'Custom', 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=400&q=80')">Order
+                            Sekarang</button>
                     </div>
-                    <div class="book-info flex-grow-1">
-                        <h3 class="book-title">Kartu Nama Profesional</h3>
-                        <p class="book-author">Bahan Art Paper 260gr, isi 100pcs/box. Gratis box plastik.</p>
-                        <p class="book-price">Rp 45.000 /box</p>
-                    </div>
-                    <button class="btn fw-bold w-100 paket-btn-custom"
-                        style="background-color: #002967; color: white; border: 2px solid #002967;"
-                        onclick="bukaModal('Kartu Nama Profesional', 'Bahan Art Paper 260gr, isi 100pcs/box. Gratis box plastik.', 'Rp 45.000 /box', '/public/produk/kartunama.webp')">
-                        Order Sekarang
-                    </button>
                 </div>
 
-                <div class="katalog-card shadow-sm">
-                    <div class="image-container">
-                        <img src="/public/produk/poster.webp" alt="Poster" class="book-cover">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400&q=80"
+                            alt="Buku Yasin"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Buku Yasin</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Rp 5.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Buku Yasin', 'Cetak buku yasin.', 'Rp 5.000 / pcs', 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=400&q=80')">Order
+                            Sekarang</button>
                     </div>
-                    <div class="book-info flex-grow-1">
-                        <h3 class="book-title">Poster Kreatif</h3>
-                        <p class="book-author">Cetak poster ukuran A3+, warna tajam untuk dekorasi atau info acara.</p>
-                        <p class="book-price">Rp 7.500 /lembar</p>
-                    </div>
-                    <button class="btn fw-bold w-100 paket-btn-custom"
-                        style="background-color: #002967; color: white; border: 2px solid #002967;"
-                        onclick="bukaModal('Poster Kreatif', 'Cetak poster ukuran A3+, warna tajam untuk dekorasi atau info acara.', 'Rp 7.500 /lembar', '/public/produk/poster.webp')">
-                        Order Sekarang
-                    </button>
                 </div>
 
-                <div class="katalog-card shadow-sm">
-                    <div class="image-container">
-                        <img src="/public/produk/sablon.webp" alt="Sablon DTF" class="book-cover">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80"
+                            alt="Buku Majmu Syarif"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Buku Majmu Syarif</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price" style="font-size: 1rem;">Harga Menyesuaikan</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Buku Majmu Syarif', 'Cetak buku Majmu Syarif.', 'Custom', 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80')">Order
+                            Sekarang</button>
                     </div>
-                    <div class="book-info flex-grow-1">
-                        <h3 class="book-title">Sablon Kaos DTF</h3>
-                        <p class="book-author">Sablon satuan kualitas distro, hasil elastis dan tidak mudah retak.</p>
-                        <p class="book-price">Rp 65.000 /pcs</p>
-                    </div>
-                    <button class="btn fw-bold w-100 paket-btn-custom"
-                        style="background-color: #002967; color: white; border: 2px solid #002967;"
-                        onclick="bukaModal('Sablon Kaos DTF', 'Sablon satuan kualitas distro, hasil elastis dan tidak mudah retak.', 'Rp 65.000 /pcs', '/public/produk/sablon.webp')">
-                        Order Sekarang
-                    </button>
                 </div>
 
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=400&q=80"
+                            alt="Poster A5 A4"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Poster A5 & A4 (Berbagai Kertas)</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 12 pcs</div>
+                        <div class="product-price">Mulai Rp 900</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Poster A5 & A4', 'Tersedia AP120, AP150, AP230, AP260. Harga mulai Rp 900 (A5) s/d Rp 2.000 (A4).', 'Rp 900 - Rp 2.000', 'https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1580192985016-7e3c98ffef03?w=400&q=80"
+                            alt="Poster A3"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Poster A3 (Berbagai Kertas)</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Mulai Rp 3.200</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Poster A3', 'Tersedia AP120, AP150, AP230, AP260. Harga mulai Rp 3.200 s/d Rp 4.500.', 'Rp 3.200 - Rp 4.500', 'https://images.unsplash.com/photo-1580192985016-7e3c98ffef03?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" alt="Nota"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Nota (1/2 Ply) Berbagai Ukuran</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price" style="font-size: 1rem;">Harga Menyesuaikan</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Cetak Nota', 'Cetak Nota 1 Rim 1 Ply / 1 Rim 2 Ply. Harga menyesuaikan.', 'Custom', 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
             </div>
+
+            <div class="mb-4 mt-5">
+                <h2 class="fw-bold" style="color: #002967; font-size: 1.6rem;">Stiker & Sablon</h2>
+                <div
+                    style="width: 60px; height: 4px; background-color: #FFCA59; border-radius: 2px; margin-bottom: 10px;">
+                </div>
+            </div>
+
+            <div class="katalog-container">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1572375992501-4b0892d50c69?w=400&q=80" alt="Stiker">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Stiker A3 Bontak/Chromo</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Rp 5.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ lembar</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Stiker A3 Bontak/Chromo', 'Stiker label tidak tahan air.', 'Rp 5.000 / lembar', 'https://images.unsplash.com/photo-1572375992501-4b0892d50c69?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1587215321528-7693fb1fdb11?w=400&q=80"
+                            alt="Stiker Vinyl"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Stiker A3 Vinyl (Tahan Air)</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Rp 8.500 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ lembar</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Stiker A3 Vinyl', 'Stiker tahan air bahan Vinyl.', 'Rp 8.500 / lembar', 'https://images.unsplash.com/photo-1587215321528-7693fb1fdb11?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1616781255852-c8402dbfc173?w=400&q=80"
+                            alt="Stiker Transparan"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Stiker A3 Transparan/Bening</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Rp 8.500 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ lembar</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Stiker A3 Transparan', 'Stiker bening / transparan.', 'Rp 8.500 / lembar', 'https://images.unsplash.com/photo-1616781255852-c8402dbfc173?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1626785773985-f21d151ce502?w=400&q=80"
+                            alt="Laminasi"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Tambahan Laminasi Stiker</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tambahan (Add-on)</div>
+                        <div class="product-price">Rp 3.000</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Tambahan Laminasi Stiker', 'Laminasi tambahan agar stiker lebih awet.', 'Rp 3.000', 'https://images.unsplash.com/photo-1626785773985-f21d151ce502?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80" alt="Kaos">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Kaos + Sablon DTF (Combed 30s)</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Rp 55.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Kaos Sablon DTF (30s)', 'Kaos Cotton Combed 30s + Sablon DTF.', 'Rp 55.000 / pcs', 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&q=80" alt="Kaos">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Kaos + Sablon DTF (Combed 24s)</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Rp 60.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Kaos Sablon DTF (24s)', 'Kaos tebal Cotton Combed 24s + Sablon DTF.', 'Rp 60.000 / pcs', 'https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1620794503791-03612d3a6c9e?w=400&q=80" alt="Sablon">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Sablon DTF (Hanya Sablon) A4 & A3</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Mulai Rp 14.000</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Jasa Sablon DTF', 'Jasa cetak press sablon DTF (A4 Rp 14.000, A3 Rp 43.000).', 'Rp 14.000 - Rp 43.000', 'https://images.unsplash.com/photo-1620794503791-03612d3a6c9e?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 mt-5">
+                <h2 class="fw-bold" style="color: #002967; font-size: 1.6rem;">Desain, Penerbitan & Hak Cipta</h2>
+                <div
+                    style="width: 60px; height: 4px; background-color: #FFCA59; border-radius: 2px; margin-bottom: 10px;">
+                </div>
+            </div>
+
+            <div class="katalog-container">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1626785773985-f21d151ce502?w=400&q=80" alt="Desain">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Design Logo Sederhana</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Bebas Order</div>
+                        <div class="product-price">Rp 10.000</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Design Logo Sederhana', 'Jasa desain logo sederhana.', 'Rp 10.000', 'https://images.unsplash.com/photo-1626785773985-f21d151ce502?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&q=80"
+                            alt="Desain Poster"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Design Banner & Poster</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Bebas Order</div>
+                        <div class="product-price">Rp 10k - 30k</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Design Banner/Poster', 'Jasa desain banner (Rp 15k-30k) & poster (Rp 10k-30k).', 'Rp 10.000 - Rp 30.000', 'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80"
+                            alt="Legalitas"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Terbit QRCBN & Daftar HKI</h3>
+                        <div class="product-rating"><i class="bi bi-shield-check" style="color: #10b981;"></i> Jasa
+                            Legalitas</div>
+                        <div class="product-price">Mulai Rp 10k</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Legalitas & Penerbitan', 'Terbit QRCBN (Rp 10.000) & Daftar Hak Cipta HKI (Rp 330.000).', 'Mulai Rp 10.000', 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4 mt-5">
+                <h2 class="fw-bold" style="color: #002967; font-size: 1.6rem;">Merchandise & Perlengkapan</h2>
+                <div
+                    style="width: 60px; height: 4px; background-color: #FFCA59; border-radius: 2px; margin-bottom: 10px;">
+                </div>
+            </div>
+
+            <div class="katalog-container">
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&q=80" alt="Lanyard">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Lanyard Custom Printing (Bebas Kuantitas)</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Harga Grosir Berlaku</div>
+                        <div class="product-price">Mulai Rp 12.600</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Lanyard Custom', '1-6 pcs (Rp18.200), 7-24 pcs (Rp14.150), >24 pcs (Rp12.600). Stopper +Rp2.100.', 'Mulai Rp 12.600', 'https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1635241161466-541f065683cb?w=400&q=80" alt="ID Card">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">ID Card + Plastik + Tali</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 4 pcs</div>
+                        <div class="product-price">Rp 900 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('ID Card', 'Cetak ID Card lengkap dengan plastik dan tali. Minimal 4 pcs.', 'Rp 900 / pcs', 'https://images.unsplash.com/photo-1635241161466-541f065683cb?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1584844788390-671abeb24e0e?w=400&q=80"
+                            alt="Gantungan Kunci"></div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Gantungan Kunci Custom</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 20 pcs</div>
+                        <div class="product-price">Rp 5.000 <span
+                                style="font-size: 0.8rem; font-weight: normal; color: #6b7280;">/ pcs</span></div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Gantungan Kunci', 'Gantungan kunci pin custom. Minimal order 20 pcs (berlaku kelipatannya).', 'Rp 5.000 / pcs', 'https://images.unsplash.com/photo-1584844788390-671abeb24e0e?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=400&q=80" alt="Bordir">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Bordir Logo (Max 9cm) & Nama</h3>
+                        <div class="product-rating"><i class="bi bi-info-circle-fill" style="color: #3b82f6;"></i> Min.
+                            Order: 12 pcs</div>
+                        <div class="product-price">Mulai Rp 3.500</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Jasa Bordir', 'Bordir Nama (Rp 3.500) & Bordir Logo Max 9cm (Rp 4.500). Minimal 12 pcs.', 'Mulai Rp 3.500', 'https://images.unsplash.com/photo-1605289982774-9a6fef564df8?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+
+                <div class="katalog-card">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1588667503576-d1d88251e612?w=400&q=80" alt="Stempel">
+                    </div>
+                    <div class="card-content text-start">
+                        <h3 class="product-title">Stempel Flash (Otomatis) & Kayu</h3>
+                        <div class="product-rating"><i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+                            Tanpa Minimal Order</div>
+                        <div class="product-price">Mulai Rp 30.000</div>
+                        <div class="product-location"><i class="bi bi-geo-alt"></i> Bojonegoro</div>
+                        <button class="btn btn-bungded"
+                            onclick="bukaModal('Pembuatan Stempel', 'Stempel Flash / Otomatis (Rp 75.000) & Stempel Kayu (Rp 30.000).', 'Mulai Rp 30.000', 'https://images.unsplash.com/photo-1588667503576-d1d88251e612?w=400&q=80')">Order
+                            Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <div class="modal fade" id="modalProduk" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-0 shadow">
-                <div class="modal-header text-white" style="background-color: #002967;">
-                    <h5 class="modal-title fw-bold">Detail Pesanan</h5>
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <div class="modal-header border-0 pb-0 pt-4 px-4 text-white" style="background-color: #002967;">
+                    <h5 class="modal-title fw-bold fs-4">Detail Pesanan</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
 
-                <div class="modal-body p-4 text-start">
+                <div
+                    style="height: 20px; background-color: #002967; border-bottom-left-radius: 50%; border-bottom-right-radius: 50%; margin-bottom: 20px;">
+                </div>
+
+                <div class="modal-body px-4 pb-4 text-start">
                     <div class="row align-items-center">
                         <div class="col-md-5 mb-4 mb-md-0 text-center">
-                            <div class="bg-light rounded p-3 h-100 d-flex align-items-center justify-content-center border"
-                                style="border-color: #eee;">
+                            <div class="bg-light rounded-3 p-3 h-100 d-flex align-items-center justify-content-center border"
+                                style="border-color: #e2e8f0 !important; overflow: hidden;">
                                 <img id="detailGambar" src="" alt="Produk" class="img-fluid rounded"
-                                    style="max-height: 250px; object-fit: contain;">
+                                    style="max-height: 250px; object-fit: cover;">
                             </div>
                         </div>
 
                         <div class="col-md-7">
-                            <h4 id="detailJudul" class="fw-bold" style="color: #002967;">Nama Produk</h4>
-                            <p id="detailDeskripsi" class="text-muted small mb-2">Deskripsi singkat produk ada di sini.
-                            </p>
-                            <h5 id="detailHarga" class="fw-bold mb-4" style="color: #333;">Harga Produk</h5>
+                            <h4 id="detailJudul" class="fw-bold mb-2" style="color: #1f2937; letter-spacing: -0.5px;">
+                                Nama Produk</h4>
+                            <p id="detailDeskripsi" class="text-muted small mb-4" style="line-height: 1.6;">Deskripsi
+                                singkat produk ada di sini.</p>
+
+                            <div class="p-3 bg-light rounded-3 mb-4 border" style="border-color: #e2e8f0 !important;">
+                                <span class="d-block text-muted small fw-bold mb-1 text-uppercase">Total Biaya:</span>
+                                <h3 id="detailHarga" class="fw-bold mb-0" style="color: #002967;">Harga Produk</h3>
+                            </div>
 
                             <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <label for="inputKuantitas" class="form-label fw-bold"
-                                        style="font-size: 0.9rem; color: #002967;">Jumlah Pesanan</label>
-                                    <input type="number" class="form-control text-center fw-bold" id="inputKuantitas"
-                                        value="1" min="1" style="border: 2px solid #002967; border-radius: 6px;">
+                                <div class="col-12 col-sm-5">
+                                    <label for="inputKuantitas"
+                                        class="form-label fw-bold small text-muted text-uppercase">Jumlah</label>
+                                    <input type="number" class="form-control form-control-lg text-center fw-bold"
+                                        id="inputKuantitas" value="1" min="1"
+                                        style="border: 2px solid #cbd5e1; border-radius: 8px;">
                                 </div>
-                                <div class="col-12">
-                                    <label for="inputCatatan" class="form-label fw-bold"
-                                        style="font-size: 0.9rem; color: #002967;">Catatan Pesanan (Opsional)</label>
-                                    <textarea class="form-control" id="inputCatatan" rows="3"
-                                        placeholder="Contoh: Tolong tulisannya diganti 'Happy Wedding', ukurannya 2x1 meter ya..."
-                                        style="border: 1px solid #ccc; border-radius: 6px; resize: none;"></textarea>
+                                <div class="col-12 col-sm-7">
+                                    <label for="inputCatatan"
+                                        class="form-label fw-bold small text-muted text-uppercase">Catatan
+                                        (Opsional)</label>
+                                    <textarea class="form-control" id="inputCatatan" rows="2"
+                                        placeholder="Tulis spesifikasi/ukuran..."
+                                        style="border: 2px solid #cbd5e1; border-radius: 8px; resize: none;"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal-footer bg-light border-top-0">
-                    <button type="button" class="btn fw-bold px-4 paket-btn-outline" data-bs-dismiss="modal"
-                        style="border-radius: 6px;">Batal</button>
-                    <button type="button" class="btn fw-bold px-4 d-inline-flex align-items-center paket-btn-custom"
-                        style="border-radius: 6px;" onclick="checkoutWA()">Pesan Sekarang
+                <div class="modal-footer bg-light border-top-0 px-4 py-3">
+                    <button type="button" class="btn fw-bold px-4" data-bs-dismiss="modal"
+                        style="background-color: transparent; border: 2px solid #6b7280; color: #6b7280; border-radius: 8px;">
+                        Batal
+                    </button>
+                    <button type="button" class="btn btn-bungded px-5 m-0" style="width: auto;" onclick="checkoutWA()">
+                        Pesan Sekarang
                     </button>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="tempat-footer"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/function/navbar.js"></script>
     <script src="/function/footer.js"></script>
-
     <script src="/function/keranjang.js"></script>
 
 </body>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paket Penerbitan - BungDed Grafika</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="/style/main.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Tema Gradasi Premium Header */
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #001533 0%, #002967 100%);
+        }
+
+        /* Ornamen Lingkaran Minimalis */
+        .circle-decoration-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            top: -100px;
+            right: -50px;
+            pointer-events: none;
+        }
+
+        .circle-decoration-2 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            bottom: -50px;
+            left: 10%;
+            pointer-events: none;
+        }
+
+        /* Efek melayang halus untuk kartu paket */
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 41, 103, 0.08) !important;
+            background-color: #ffffff;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-10px) !important;
+            /* Di-override dengan !important agar card tengah (CEO) juga naik */
+            box-shadow: 0 20px 30px rgba(0, 41, 103, 0.1) !important;
+            border-color: rgba(0, 41, 103, 0.2) !important;
+        }
+
+        /* Styling List Fitur */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            padding-bottom: 12px;
+            color: #475569;
+            display: flex;
+            align-items: start;
+            font-size: 0.95rem;
+        }
+
+        .feature-list li i {
+            color: #002967;
+            font-size: 1.1rem;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        /* Responsif HP */
+        @media (max-width: 768px) {
+            .header-section {
+                padding-top: 120px !important;
+                padding-bottom: 100px !important;
+            }
+
+            .overlap-container {
+                margin-top: -60px !important;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <div id="tempat-navbar"></div>
+
+    <section
+        class="position-relative d-flex flex-column justify-content-center text-center bg-gradient-primary header-section"
+        style="padding-top: 160px; padding-bottom: 140px; overflow: hidden;">
+
+        <div class="circle-decoration-1"></div>
+        <div class="circle-decoration-2"></div>
+
+        <div class="container position-relative z-1 text-white">
+            <span class="badge rounded-pill mb-3 px-3 py-2"
+                style="background-color: rgba(255,255,255,0.15); font-weight: 600; letter-spacing: 1px;">
+                HARGA TRANSPARAN
+            </span>
+            <h1 class="display-5 fw-bold mb-3">Paket Penerbitan</h1>
+            <p class="lead mx-auto opacity-75" style="max-width: 650px; font-size: 1.1rem;">
+                Pilih paket penerbitan yang paling sesuai dengan kebutuhan naskah Anda. Kami berikan fasilitas lengkap
+                dari layout hingga cetak fisik.
+            </p>
+        </div>
+    </section>
+
+    <section class="pb-5" style="background-color: #f8f9fa;">
+        <div class="container overlap-container position-relative z-2" style="margin-top: -80px;">
+
+            <div class="row g-4 justify-content-center align-items-center">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 p-md-5 shadow-sm premium-card rounded-4">
+                        <div class="card-body d-flex flex-column p-0">
+                            <h4 class="fw-bold mb-1" style="color: #64748b;">Paket Ordal</h4>
+                            <p class="text-muted small mb-4 pb-3 border-bottom">Cocok untuk pemula & naskah ringan</p>
+
+                            <ul class="feature-list flex-grow-1 mb-4">
+                                <li><i class="bi bi-check-circle-fill"></i> 2 eksemplar soft cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> ISBN Cetak & Digital</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Ukuran A5 (HVS/Bookpaper)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Maksimal 150 halaman</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Free Layout & Design Cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Sertifikat Penulis</li>
+                            </ul>
+
+                            <h3 class="fw-bold text-dark mb-4 mt-2">Rp 1.500.000</h3>
+                            <button class="btn fw-bold w-100 paket-btn-custom py-3 rounded-3"
+                                onclick="bukaModal('Paket Ordal', 'Fasilitas: 2 eks soft cover, ISBN, Free Layout & Cover, Sertifikat Penulis.', 'Rp 1.500.000', '')">
+                                Pilih Paket Ini
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 p-md-5 shadow-lg bg-white premium-card rounded-4 position-relative"
+                        style="border: 2px solid #002967 !important; transform: scale(1.05); z-index: 2;">
+
+                        <div class="position-absolute top-0 start-50 translate-middle bg-warning text-dark px-4 py-1 rounded-pill fw-bold shadow-sm"
+                            style="font-size: 0.85rem; letter-spacing: 1px;">TERLARIS</div>
+
+                        <div class="card-body d-flex flex-column p-0 mt-2">
+                            <h4 class="fw-bold mb-1" style="color: #002967;">Paket CEO</h4>
+                            <p class="text-muted small mb-4 pb-3 border-bottom">Standar profesional untuk dosen &
+                                praktisi</p>
+
+                            <ul class="feature-list flex-grow-1 mb-4">
+                                <li><i class="bi bi-check-circle-fill text-warning"></i> 5 eksemplar soft cover</li>
+                                <li><i class="bi bi-check-circle-fill text-warning"></i> ISBN Cetak & Digital</li>
+                                <li><i class="bi bi-check-circle-fill text-warning"></i> Ukuran A5 (HVS/Bookpaper)</li>
+                                <li><i class="bi bi-check-circle-fill text-warning"></i> Maksimal 250 halaman</li>
+                                <li><i class="bi bi-check-circle-fill text-warning"></i> Free Layout & Design Cover</li>
+                                <li><i class="bi bi-check-circle-fill text-warning"></i> Sertifikat Penulis</li>
+                                <li><i class="bi bi-check-circle-fill text-warning"></i> <strong
+                                        style="color: #002967;">Bonus: Pamflet Promosi</strong></li>
+                            </ul>
+
+                            <h3 class="fw-bold text-dark mb-4 mt-2">Rp 2.500.000</h3>
+                            <button class="btn fw-bold w-100 py-3 rounded-3 shadow-sm"
+                                style="background-color: #002967; color: white; border: 2px solid #002967; transition: all 0.3s;"
+                                onmouseover="this.style.backgroundColor='transparent'; this.style.color='#002967';"
+                                onmouseout="this.style.backgroundColor='#002967'; this.style.color='white';"
+                                onclick="bukaModal('Paket CEO', 'Fasilitas: 5 eks soft cover, ISBN, Free Layout & Cover, Pamflet Promosi.', 'Rp 2.500.000', '')">
+                                Pilih Paket Ini
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 p-4 p-md-5 shadow-sm premium-card rounded-4">
+                        <div class="card-body d-flex flex-column p-0">
+                            <h4 class="fw-bold mb-1" style="color: #64748b;">Paket Kraton</h4>
+                            <p class="text-muted small mb-4 pb-3 border-bottom">Solusi lengkap dengan pemasaran</p>
+
+                            <ul class="feature-list flex-grow-1 mb-4">
+                                <li><i class="bi bi-check-circle-fill"></i> 10 eksemplar soft cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> ISBN Cetak & Digital</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Ukuran A5 (HVS/Bookpaper)</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Maksimal 350 halaman</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Free Layout & Design Cover</li>
+                                <li><i class="bi bi-check-circle-fill"></i> Sertifikat & Pamflet Promosi</li>
+                                <li><i class="bi bi-check-circle-fill"></i> <strong>Promosi Medsos/Website</strong></li>
+                            </ul>
+
+                            <h3 class="fw-bold text-dark mb-4 mt-2">Rp 4.000.000</h3>
+                            <button class="btn fw-bold w-100 paket-btn-custom py-3 rounded-3"
+                                onclick="bukaModal('Paket Kraton', 'Fasilitas: 10 eks soft cover, ISBN, Free Layout & Cover, Promosi Medsos.', 'Rp 4.000.000', '')">
+                                Pilih Paket Ini
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="modalProduk" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+                <div class="modal-header border-0 pb-0 pt-4 px-4 text-white" style="background-color: #002967;">
+                    <h5 class="modal-title fw-bold fs-4">Detail Pesanan</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+
+                <div
+                    style="height: 20px; background-color: #002967; border-bottom-left-radius: 50%; border-bottom-right-radius: 50%; margin-bottom: 20px;">
+                </div>
+
+                <div class="modal-body px-4 pb-4 text-start">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-4 mb-md-0 text-center">
+                            <div class="bg-light rounded-3 p-3 h-100 d-flex align-items-center justify-content-center border"
+                                style="border-color: #e2e8f0 !important;">
+                                <img id="detailGambar" src="" alt="Paket" class="img-fluid rounded d-none"
+                                    style="max-height: 250px; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h4 id="detailJudul" class="fw-bold mb-2" style="color: #002967; letter-spacing: -0.5px;">
+                                Nama Produk</h4>
+                            <p id="detailDeskripsi" class="text-muted small mb-4" style="line-height: 1.6;">Deskripsi
+                                singkat produk ada di sini.</p>
+
+                            <div class="p-3 bg-light rounded-3 mb-4 border" style="border-color: #e2e8f0 !important;">
+                                <span class="d-block text-muted small fw-bold mb-1 text-uppercase">Total Biaya:</span>
+                                <h3 id="detailHarga" class="fw-bold mb-0" style="color: #002967;">Harga Produk</h3>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-5">
+                                    <label for="inputKuantitas"
+                                        class="form-label fw-bold small text-muted text-uppercase">Jumlah</label>
+                                    <input type="number" class="form-control form-control-lg text-center fw-bold"
+                                        id="inputKuantitas" value="1" min="1"
+                                        style="border: 2px solid #cbd5e1; border-radius: 8px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <label for="inputCatatan"
+                                        class="form-label fw-bold small text-muted text-uppercase">Catatan
+                                        (Opsional)</label>
+                                    <textarea class="form-control" id="inputCatatan" rows="2"
+                                        placeholder="Contoh: Info cara kirim naskah..."
+                                        style="border: 2px solid #cbd5e1; border-radius: 8px; resize: none;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer bg-light border-top-0 px-4 py-3">
+                    <button type="button" class="btn fw-bold px-4" data-bs-dismiss="modal"
+                        style="background-color: transparent; border: 2px solid #002967; color: #002967; border-radius: 8px;">
+                        Batal
+                    </button>
+                    <button type="button" class="btn fw-bold px-5 paket-btn-custom shadow-sm"
+                        style="border-radius: 8px; background-color: #002967; color: white; border: 2px solid #002967;"
+                        onclick="checkoutWA()">
+                        Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tempat-footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/function/navbar.js"></script>
+    <script src="/function/footer.js"></script>
+    <script src="/function/keranjang.js"></script>
+
+</body>
+
+</html>
